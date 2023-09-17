@@ -1,4 +1,4 @@
-# OpenNoteBmockStudioVR
+# OpenNoteBlockStudioVR
 
 IT'S HERE!!!
 
