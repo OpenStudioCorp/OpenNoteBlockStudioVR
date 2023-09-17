@@ -4,7 +4,7 @@ IT'S HERE!!!
 
 Welcome to the official repository for OpenNoteBlockStudioVR made within the godot engine!!!
 
-OpenStudioCorp is happy to announce that the development is back! and with the help from you all, we cna make this the best VR/desktop Game there has ever been!
+OpenStudioCorp is happy to announce that the development is back! and with the help from you all, we can make this the best VR/desktop Game there has ever been!
 
 in order to submit your code, please first
 
