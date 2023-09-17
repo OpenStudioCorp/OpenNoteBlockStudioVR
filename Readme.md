@@ -17,4 +17,4 @@ currently in version 0.0.1 of OpenNoteBlockStudioVR, pressing the esc key will o
 
 we hope you have a fun time working on this, stay safe and may a happy song play with you all!!!
 
-using the template from for item picup and movement Patreon: https://www.patreon.com/cptfurball
+using the template from for item picup and movement Patreon: <https://www.patreon.com/cptfurball>
