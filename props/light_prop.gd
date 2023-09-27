@@ -78,6 +78,9 @@ func attach(causer: Node):
 	collision_mask = CONTAINER_MASK_ATTACH_MODE
 	prop_container = causer
 	angular_damp = ANGULAR_DAMP
+	# play a sound from the node atatched to the prop
+	# Load the audio file
+
 
 
 # The opposite of detach. This will reset the collision mask

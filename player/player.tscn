@@ -7,7 +7,7 @@
 radius = 0.25
 height = 0.9
 
-[node name="Player" type="KinematicBody"]
+[node name="desktop" type="KinematicBody"]
 collision_mask = 6
 script = ExtResource( 1 )
 

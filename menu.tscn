@@ -1,0 +1,29 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="s" type="Button" parent="."]
+margin_left = 133.0
+margin_top = 486.0
+margin_right = 272.0
+margin_bottom = 597.0
+
+[node name="w" type="Button" parent="."]
+margin_left = 132.0
+margin_top = 216.0
+margin_right = 272.0
+margin_bottom = 336.0
+
+[node name="a" type="Button" parent="."]
+margin_left = 3.0
+margin_top = 333.0
+margin_right = 132.0
+margin_bottom = 483.0
+
+[node name="d" type="Button" parent="."]
+margin_left = 275.0
+margin_top = 341.0
+margin_right = 410.0
+margin_bottom = 487.0

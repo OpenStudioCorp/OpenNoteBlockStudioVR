@@ -72,7 +72,17 @@ func _process(delta):
 	if !(Input.is_action_pressed(KEY_INSPECT) and prop_container.prop):
 		move(delta)
 		crouch(delta)
-	
+		# Load the audio file
+		var audio = load("res://assets/sounds/sex.mp3")
+
+# Create an AudioStreamPlayer node
+		var audio_player = AudioStreamPlayer.new()
+
+# Set the audio file to play
+		audio_player.stream = audio
+
+# Play the audio
+		audio_player.play()
 	rigid_body_collision()
 
 
@@ -236,3 +246,19 @@ func process_camera_motion(relative_vector: Vector2) -> void:
 	# rotate the camera on x axis (look up or down)
 	camera_x_pivot.rotate_x(deg2rad(-relative_vector.y * mouse_y_sensitivity))
 	camera_x_pivot.rotation.x = clamp(camera_x_pivot.rotation.x, deg2rad(-max_mouse_x_degree), deg2rad(max_mouse_x_degree))
+
+
+func _on_s_pressed():
+	pass # Replace with function body.
+
+
+func _on_w_pressed():
+	pass # Replace with function body.
+
+
+func _on_a_pressed():
+	pass # Replace with function body.
+
+
+func _on_d_pressed():
+	pass # Replace with function body.

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://props/proto_props/box.tscn" type="PackedScene" id=2]
+[ext_resource path="res://new_script.gd" type="Script" id=3]
+[ext_resource path="res://assets/textures/block/black_wool.png" type="Texture" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 4 )
+uv1_scale = Vector3( 100, 100, 70 )
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="ground" parent="." instance=ExtResource( 2 )]
+transform = Transform( 59.3447, 0, 0, 0, 0.342711, 0, 0, 0, 59.3447, 3.03017, 0, 4.69782 )
+collision_layer = 7
+mode = 1
+mass = 0.01
+gravity_scale = 0.0
+can_sleep = false
+script = null
+
+[node name="CSGBox" type="CSGBox" parent="ground"]
+width = 1.00584
+depth = 0.996314
+material = SubResource( 1 )
+
+[node name="Box" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9869, 49.2, 13.763 )
