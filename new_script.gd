@@ -1,37 +1,46 @@
-extends Node
+tool
+extends Spatial
 
+var current_mode = "desktop"
+var desktop_player = null
+var vr_player = null
 
 func _ready():
-	if OS.get_name() == "Android":
-		# Show the menu
-		var menu = load("res://menu.tscn").instance()
-		add_child(menu)
-	else:
-		pass
-
-func create_desktop_player():
-
-	var desktop = preload("res://player/player.tscn").instance()
-
-	get_tree().root.remove_child(get_tree().root.get_node("vrplayer"))
-	get_tree().root.add_child(desktop)
-
+	# Get references to the desktop and VR player nodes
+	desktop_player = get_node("desktop")
+	vr_player = get_node("vrplayer")
+	# Disable the VR player initially
+	remove_child(vr_player)
 	
 
-func create_vr_player():
-	print("vr")
-	var vrplayer = preload("res://vrplayer.tscn").instance()
+func toggle_mode():
+	if current_mode == "desktop":
+		current_mode = "VR"
+		# Disable the desktop player and enable the VR player
+		remove_child(desktop_player)
+		add_child(vr_player)
+		print("Switching to VR mode")
+		print("Desktop player visible:", desktop_player.is_visible())
+		print("VR player visible:", vr_player.is_visible())
+		print("Scene tree:", get_tree().get_root().get_children())
+		get_viewport().set_size(Vector2(0, 0))
+		
+	elif current_mode == "VR":
+		current_mode = "desktop"
+		# Disable the VR player and enable the desktop player
+		remove_child(vr_player)
+		add_child(desktop_player)
+		print("Switching to desktop mode")
+		print("Desktop player visible:", desktop_player.is_visible())
+		print("VR player visible:", vr_player.is_visible())
+		print("Scene tree:", get_tree().get_root().get_children())
+		get_viewport().set_size(get_viewport().get_size())
+		
+	else:
+		print("Error: unknown mode", current_mode)
 
-	get_tree().root.remove_child(get_tree().root.get_node("desktop"))
-	get_tree().root.add_child(vrplayer)
-	vrplayer.translation = Vector3(0, 1.6, 0)
+# Bind the toggle_mode function to the action that triggers the mode change
 
 func _input(event):
 	if event.is_action_pressed("vr"):
-		create_vr_player()
-		if get_tree().root.has_node("desktop"):
-			create_vr_player()
-		elif get_tree().root.has_node("vrplayer"):
-			create_desktop_player()
-			
-		print("vr")
+		toggle_mode()

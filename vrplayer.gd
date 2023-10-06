@@ -1,6 +1,13 @@
 extends Spatial
 
 func _ready():
+	# Check if we're running in desktop mode
+	if Engine.editor_hint or OS.get_cmdline_args().find("--desktop") != -1:
+		# We're in desktop mode, so disable the viewport
+		get_viewport().visible = false
+		return
+
+	# Initialize VR
 	var VR = ARVRServer.find_interface("OpenVR")
 	if VR and VR.initialize():
 		get_viewport().arvr = true
