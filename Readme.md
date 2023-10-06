@@ -7,7 +7,7 @@ Welcome to the official repository for OpenNoteBlockStudioVR made within the god
 OpenStudioCorp is happy to announce that the development is back! and with the help from you all, we can make this the best VR/desktop Game there has ever been!
 
 in order to submit your code, please first
-
+STEP 0.5. have godot 3.5.2 c# support installed and use for editing code
 1. fork this repository
 2. make a branch with your changes 
 3. submit a pull request
