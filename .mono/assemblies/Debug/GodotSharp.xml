@@ -13709,6 +13709,7 @@
             <para>3D area that detects <see cref="T:Godot.CollisionObject"/> nodes overlapping, entering, or exiting. Can also alter or override local physics parameters (gravity, damping) and route audio to a custom audio bus.</para>
             <para>To give the area its shape, add a <see cref="T:Godot.CollisionShape"/> or a <see cref="T:Godot.CollisionPolygon"/> node as a direct child (or add multiple such nodes as direct children) of the area.</para>
             <para>Warning: See <see cref="T:Godot.ConcavePolygonShape"/> (also called "trimesh") for a warning about possibly unexpected behavior when using that shape for an area.</para>
+            <para>Warning: With a non-uniform scale this node will probably not function as expected. Please make sure to keep its scale uniform (i.e. the same on all axes), and change the size(s) of its collision shape(s) instead.</para>
             </summary>
         </member>
         <member name="F:Godot.Area.SpaceOverrideEnum.Disabled">
@@ -16715,6 +16716,7 @@
         <member name="P:Godot.CPUParticles.EmissionColors">
             <summary>
             <para>Sets the <see cref="T:Godot.Color"/>s to modulate particles by when using <see cref="F:Godot.CPUParticles.EmissionShapeEnum.Points"/> or <see cref="F:Godot.CPUParticles.EmissionShapeEnum.DirectedPoints"/>.</para>
+            <para>Note: <see cref="P:Godot.CPUParticles.EmissionColors"/> multiplies the particle mesh's vertex colors. To have a visible effect on a <see cref="T:Godot.SpatialMaterial"/>, <see cref="P:Godot.SpatialMaterial.VertexColorUseAsAlbedo"/> must be <c>true</c>. For a <see cref="T:Godot.ShaderMaterial"/>, <c>ALBEDO *= COLOR.rgb;</c> must be inserted in the shader's <c>fragment()</c> function. Otherwise, <see cref="P:Godot.CPUParticles.EmissionColors"/> will have no visible effect.</para>
             </summary>
         </member>
         <member name="P:Godot.CPUParticles.EmissionRingRadius">
@@ -16905,17 +16907,20 @@
         </member>
         <member name="P:Godot.CPUParticles.Color">
             <summary>
-            <para>Each particle's initial color. To have particle display color in a <see cref="T:Godot.SpatialMaterial"/> make sure to set <see cref="P:Godot.SpatialMaterial.VertexColorUseAsAlbedo"/> to <c>true</c>.</para>
+            <para>Each particle's initial color.</para>
+            <para>Note: <see cref="P:Godot.CPUParticles.Color"/> multiplies the particle mesh's vertex colors. To have a visible effect on a <see cref="T:Godot.SpatialMaterial"/>, <see cref="P:Godot.SpatialMaterial.VertexColorUseAsAlbedo"/> must be <c>true</c>. For a <see cref="T:Godot.ShaderMaterial"/>, <c>ALBEDO *= COLOR.rgb;</c> must be inserted in the shader's <c>fragment()</c> function. Otherwise, <see cref="P:Godot.CPUParticles.Color"/> will have no visible effect.</para>
             </summary>
         </member>
         <member name="P:Godot.CPUParticles.ColorRamp">
             <summary>
             <para>Each particle's color will vary along this <see cref="T:Godot.GradientTexture"/> over its lifetime (multiplied with <see cref="P:Godot.CPUParticles.Color"/>).</para>
+            <para>Note: <see cref="P:Godot.CPUParticles.ColorRamp"/> multiplies the particle mesh's vertex colors. To have a visible effect on a <see cref="T:Godot.SpatialMaterial"/>, <see cref="P:Godot.SpatialMaterial.VertexColorUseAsAlbedo"/> must be <c>true</c>. For a <see cref="T:Godot.ShaderMaterial"/>, <c>ALBEDO *= COLOR.rgb;</c> must be inserted in the shader's <c>fragment()</c> function. Otherwise, <see cref="P:Godot.CPUParticles.ColorRamp"/> will have no visible effect.</para>
             </summary>
         </member>
         <member name="P:Godot.CPUParticles.ColorInitialRamp">
             <summary>
             <para>Each particle's initial color will vary along this <see cref="T:Godot.GradientTexture"/> (multiplied with <see cref="P:Godot.CPUParticles.Color"/>).</para>
+            <para>Note: <see cref="P:Godot.CPUParticles.ColorInitialRamp"/> multiplies the particle mesh's vertex colors. To have a visible effect on a <see cref="T:Godot.SpatialMaterial"/>, <see cref="P:Godot.SpatialMaterial.VertexColorUseAsAlbedo"/> must be <c>true</c>. For a <see cref="T:Godot.ShaderMaterial"/>, <c>ALBEDO *= COLOR.rgb;</c> must be inserted in the shader's <c>fragment()</c> function. Otherwise, <see cref="P:Godot.CPUParticles.ColorInitialRamp"/> will have no visible effect.</para>
             </summary>
         </member>
         <member name="P:Godot.CPUParticles.HueVariation">
@@ -18544,7 +18549,7 @@
         </member>
         <member name="P:Godot.CanvasItem.Visible">
             <summary>
-            <para>If <c>true</c>, this <see cref="T:Godot.CanvasItem"/> is drawn. The node is only visible if all of its antecedents are visible as well (in other words, <see cref="M:Godot.CanvasItem.IsVisibleInTree"/> must return <c>true</c>).</para>
+            <para>If <c>true</c>, this <see cref="T:Godot.CanvasItem"/> is drawn. The node is only visible if all of its ancestors are visible as well (in other words, <see cref="M:Godot.CanvasItem.IsVisibleInTree"/> must return <c>true</c>).</para>
             <para>Note: For controls that inherit <see cref="T:Godot.Popup"/>, the correct way to make them visible is to call one of the multiple <c>popup*()</c> functions instead.</para>
             </summary>
         </member>
@@ -18596,7 +18601,7 @@
         </member>
         <member name="M:Godot.CanvasItem.IsVisibleInTree">
             <summary>
-            <para>Returns <c>true</c> if the node is present in the <see cref="T:Godot.SceneTree"/>, its <see cref="P:Godot.CanvasItem.Visible"/> property is <c>true</c> and all its antecedents are also visible. If any antecedent is hidden, this node will not be visible in the scene tree, and is consequently not drawn (see <see cref="M:Godot.CanvasItem._Draw"/>).</para>
+            <para>Returns <c>true</c> if the node is present in the <see cref="T:Godot.SceneTree"/>, its <see cref="P:Godot.CanvasItem.Visible"/> property is <c>true</c> and all its ancestors are also visible. If any ancestor is hidden, this node will not be visible in the scene tree, and is consequently not drawn (see <see cref="M:Godot.CanvasItem._Draw"/>).</para>
             </summary>
         </member>
         <member name="M:Godot.CanvasItem.Show">
@@ -18772,12 +18777,12 @@
         </member>
         <member name="M:Godot.CanvasItem.GetGlobalTransformWithCanvas">
             <summary>
-            <para>Returns the global transform matrix of this item in relation to the canvas.</para>
+            <para>Returns the transform from the local coordinate system of this <see cref="T:Godot.CanvasItem"/> to the <see cref="T:Godot.Viewport"/>s coordinate system.</para>
             </summary>
         </member>
         <member name="M:Godot.CanvasItem.GetViewportTransform">
             <summary>
-            <para>Returns this item's transform in relation to the viewport.</para>
+            <para>Returns the transform from the coordinate system of the canvas, this item is in, to the <see cref="T:Godot.Viewport"/>s embedders coordinate system.</para>
             </summary>
         </member>
         <member name="M:Godot.CanvasItem.GetViewportRect">
@@ -18787,7 +18792,7 @@
         </member>
         <member name="M:Godot.CanvasItem.GetCanvasTransform">
             <summary>
-            <para>Returns the transform matrix of this item's canvas.</para>
+            <para>Returns the transform from the coordinate system of the canvas, this item is in, to the <see cref="T:Godot.Viewport"/>s coordinate system.</para>
             </summary>
         </member>
         <member name="M:Godot.CanvasItem.GetLocalMousePosition">
@@ -18989,6 +18994,11 @@
         <member name="M:Godot.CanvasLayer.Hide">
             <summary>
             <para>Hides any <see cref="T:Godot.CanvasItem"/> under this <see cref="T:Godot.CanvasLayer"/>. This is equivalent to setting <see cref="P:Godot.CanvasLayer.Visible"/> to <c>false</c>.</para>
+            </summary>
+        </member>
+        <member name="M:Godot.CanvasLayer.GetFinalTransform">
+            <summary>
+            <para>Returns the transform from the <see cref="T:Godot.CanvasLayer"/>s coordinate system to the <see cref="T:Godot.Viewport"/>s coordinate system.</para>
             </summary>
         </member>
         <member name="M:Godot.CanvasLayer.GetCanvas">
@@ -19234,6 +19244,7 @@
         <member name="T:Godot.CollisionObject">
             <summary>
             <para>CollisionObject is the base class for physics objects. It can hold any number of collision <see cref="T:Godot.Shape"/>s. Each shape must be assigned to a shape owner. The CollisionObject can have any number of shape owners. Shape owners are not nodes and do not appear in the editor, but are accessible through code using the <c>shape_owner_*</c> methods.</para>
+            <para>Warning: With a non-uniform scale this node will probably not function as expected. Please make sure to keep its scale uniform (i.e. the same on all axes), and change the size(s) of its collision shape(s) instead.</para>
             </summary>
         </member>
         <member name="P:Godot.CollisionObject.CollisionLayer">
@@ -19518,6 +19529,7 @@
         <member name="T:Godot.CollisionPolygon">
             <summary>
             <para>Allows editing a collision polygon's vertices on a selected plane. Can also set a depth perpendicular to that plane. This class is only available in the editor. It will not appear in the scene tree at run-time. Creates a <see cref="T:Godot.Shape"/> for gameplay. Properties modified during gameplay will have no effect.</para>
+            <para>Warning: A non-uniformly scaled CollisionPolygon3D node will probably not function as expected. Please make sure to keep its scale uniform (i.e. the same on all axes), and change its <see cref="P:Godot.CollisionPolygon.Polygon"/>'s vertices instead.</para>
             </summary>
         </member>
         <member name="P:Godot.CollisionPolygon.Depth">
@@ -19586,6 +19598,7 @@
             <summary>
             <para>Editor facility for creating and editing collision shapes in 3D space. Set the <see cref="P:Godot.CollisionShape.Shape"/> property to configure the shape. IMPORTANT: this is an Editor-only helper to create shapes, use <see cref="M:Godot.CollisionObject.ShapeOwnerGetShape(System.UInt32,System.Int32)"/> to get the actual shape.</para>
             <para>You can use this node to represent all sorts of collision shapes, for example, add this to an <see cref="T:Godot.Area"/> to give it a detection shape, or add it to a <see cref="T:Godot.PhysicsBody"/> to create a solid object.</para>
+            <para>Warning: A non-uniformly scaled CollisionShape3D node will probably not function as expected. Please make sure to keep its scale uniform (i.e. the same on all axes), and change the size of its <see cref="P:Godot.CollisionShape.Shape"/> resource instead.</para>
             </summary>
         </member>
         <member name="P:Godot.CollisionShape.Shape">
@@ -26760,12 +26773,12 @@
         </member>
         <member name="M:Godot.Input.GetJoyName(System.Int32)">
             <summary>
-            <para>Returns the name of the joypad at the specified device index.</para>
+            <para>Returns the name of the joypad at the specified device index, e.g. <c>PS4 Controller</c>. Godot uses the <a href="https://github.com/gabomdq/SDL_GameControllerDB">SDL2 game controller database</a> to determine gamepad names.</para>
             </summary>
         </member>
         <member name="M:Godot.Input.GetJoyGuid(System.Int32)">
             <summary>
-            <para>Returns a SDL2-compatible device GUID on platforms that use gamepad remapping. Returns <c>"Default Gamepad"</c> otherwise.</para>
+            <para>Returns a SDL2-compatible device GUID on platforms that use gamepad remapping, e.g. <c>030000004c050000c405000000010000</c>. Returns <c>"Default Gamepad"</c> otherwise. Godot uses the <a href="https://github.com/gabomdq/SDL_GameControllerDB">SDL2 game controller database</a> to determine gamepad names and mappings based on this GUID.</para>
             </summary>
         </member>
         <member name="M:Godot.Input.GetConnectedJoypads">
@@ -26915,7 +26928,7 @@
         <member name="M:Godot.Input.SetCustomMouseCursor(Godot.Resource,Godot.Input.CursorShape,System.Nullable{Godot.Vector2})">
             <summary>
             <para>Sets a custom mouse cursor image, which is only visible inside the game window. The hotspot can also be specified. Passing <c>null</c> to the image parameter resets to the system cursor. See <see cref="T:Godot.Input.CursorShape"/> for the list of shapes.</para>
-            <para><c>image</c>'s size must be lower than 256×256.</para>
+            <para><c>image</c>'s size must be lower than or equal to 256×256. To avoid rendering issues, sizes lower than or equal to 128×128 are recommended.</para>
             <para><c>hotspot</c> must be within <c>image</c>'s size.</para>
             <para>Note: <see cref="T:Godot.AnimatedTexture"/>s aren't supported as custom mouse cursors. If using an <see cref="T:Godot.AnimatedTexture"/>, only the first frame will be displayed.</para>
             <para>Note: Only images imported with the Lossless, Lossy or Uncompressed compression modes are supported. The Video RAM compression mode can't be used for custom cursors.</para>
@@ -27990,6 +28003,7 @@
             <para>Kinematic bodies are special types of bodies that are meant to be user-controlled. They are not affected by physics at all; to other types of bodies, such as a character or a rigid body, these are the same as a static body. However, they have two main uses:</para>
             <para>Simulated motion: When these bodies are moved manually, either from code or from an <see cref="T:Godot.AnimationPlayer"/> (with <see cref="P:Godot.AnimationPlayer.PlaybackProcessMode"/> set to "physics"), the physics will automatically compute an estimate of their linear and angular velocity. This makes them very useful for moving platforms or other AnimationPlayer-controlled objects (like a door, a bridge that opens, etc).</para>
             <para>Kinematic characters: KinematicBody also has an API for moving objects (the <see cref="M:Godot.KinematicBody.MoveAndCollide(Godot.Vector3,System.Boolean,System.Boolean,System.Boolean)"/> and <see cref="M:Godot.KinematicBody.MoveAndSlide(Godot.Vector3,System.Nullable{Godot.Vector3},System.Boolean,System.Int32,System.Single,System.Boolean)"/> methods) while performing collision tests. This makes them really useful to implement characters that collide against a world, but don't require advanced physics.</para>
+            <para>Warning: With a non-uniform scale this node will probably not function as expected. Please make sure to keep its scale uniform (i.e. the same on all axes), and change the size(s) of its collision shape(s) instead.</para>
             </summary>
         </member>
         <member name="F:Godot.KinematicBody.MovingPlatformApplyVelocityOnLeaveEnum.Always">
@@ -33223,6 +33237,7 @@
             <summary>
             <para>OptionButton is a type button that provides a selectable list of items when pressed. The item selected becomes the "current" item and is displayed as the button text.</para>
             <para>See also <see cref="T:Godot.BaseButton"/> which contains common properties and methods associated with this node.</para>
+            <para>Note: The ID values used for items are limited to 32 bits, not full 64 bits of <see cref="T:System.Int32"/>. This has a range of <c>-2^32</c> to <c>2^32 - 1</c>, i.e. <c>-2147483648</c> to <c>2147483647</c>.</para>
             </summary>
         </member>
         <member name="P:Godot.OptionButton.Selected">
@@ -34099,6 +34114,7 @@
         <member name="P:Godot.ParticlesMaterial.EmissionColorTexture">
             <summary>
             <para>Particle color will be modulated by color determined by sampling this texture at the same point as the <see cref="P:Godot.ParticlesMaterial.EmissionPointTexture"/>.</para>
+            <para>Note: <see cref="P:Godot.ParticlesMaterial.EmissionColorTexture"/> multiplies the particle mesh's vertex colors. To have a visible effect on a <see cref="T:Godot.SpatialMaterial"/>, <see cref="P:Godot.SpatialMaterial.VertexColorUseAsAlbedo"/> must be <c>true</c>. For a <see cref="T:Godot.ShaderMaterial"/>, <c>ALBEDO *= COLOR.rgb;</c> must be inserted in the shader's <c>fragment()</c> function. Otherwise, <see cref="P:Godot.ParticlesMaterial.EmissionColorTexture"/> will have no visible effect.</para>
             </summary>
         </member>
         <member name="P:Godot.ParticlesMaterial.EmissionPointCount">
@@ -34296,17 +34312,20 @@
         </member>
         <member name="P:Godot.ParticlesMaterial.Color">
             <summary>
-            <para>Each particle's initial color. If the <see cref="T:Godot.Particles2D"/>'s <c>texture</c> is defined, it will be multiplied by this color. To have particle display color in a <see cref="T:Godot.SpatialMaterial"/> make sure to set <see cref="P:Godot.SpatialMaterial.VertexColorUseAsAlbedo"/> to <c>true</c>.</para>
+            <para>Each particle's initial color. If the <see cref="T:Godot.Particles2D"/>'s or <see cref="T:Godot.Particles"/>'s <c>texture</c> is defined, it will be multiplied by this color.</para>
+            <para>Note: <see cref="P:Godot.ParticlesMaterial.Color"/> multiplies the particle mesh's vertex colors. To have a visible effect on a <see cref="T:Godot.SpatialMaterial"/>, <see cref="P:Godot.SpatialMaterial.VertexColorUseAsAlbedo"/> must be <c>true</c>. For a <see cref="T:Godot.ShaderMaterial"/>, <c>ALBEDO *= COLOR.rgb;</c> must be inserted in the shader's <c>fragment()</c> function. Otherwise, <see cref="P:Godot.ParticlesMaterial.Color"/> will have no visible effect.</para>
             </summary>
         </member>
         <member name="P:Godot.ParticlesMaterial.ColorRamp">
             <summary>
             <para>Each particle's color will vary along this <see cref="T:Godot.GradientTexture"/> over its lifetime (multiplied with <see cref="P:Godot.ParticlesMaterial.Color"/>).</para>
+            <para>Note: <see cref="P:Godot.ParticlesMaterial.ColorRamp"/> multiplies the particle mesh's vertex colors. To have a visible effect on a <see cref="T:Godot.SpatialMaterial"/>, <see cref="P:Godot.SpatialMaterial.VertexColorUseAsAlbedo"/> must be <c>true</c>. For a <see cref="T:Godot.ShaderMaterial"/>, <c>ALBEDO *= COLOR.rgb;</c> must be inserted in the shader's <c>fragment()</c> function. Otherwise, <see cref="P:Godot.ParticlesMaterial.ColorRamp"/> will have no visible effect.</para>
             </summary>
         </member>
         <member name="P:Godot.ParticlesMaterial.ColorInitialRamp">
             <summary>
             <para>Each particle's initial color will vary along this <see cref="T:Godot.GradientTexture"/> (multiplied with <see cref="P:Godot.ParticlesMaterial.Color"/>).</para>
+            <para>Note: <see cref="P:Godot.ParticlesMaterial.ColorInitialRamp"/> multiplies the particle mesh's vertex colors. To have a visible effect on a <see cref="T:Godot.SpatialMaterial"/>, <see cref="P:Godot.SpatialMaterial.VertexColorUseAsAlbedo"/> must be <c>true</c>. For a <see cref="T:Godot.ShaderMaterial"/>, <c>ALBEDO *= COLOR.rgb;</c> must be inserted in the shader's <c>fragment()</c> function. Otherwise, <see cref="P:Godot.ParticlesMaterial.ColorInitialRamp"/> will have no visible effect.</para>
             </summary>
         </member>
         <member name="P:Godot.ParticlesMaterial.HueVariation">
@@ -34705,6 +34724,11 @@
             <para><code>
             print(Performance.get_monitor(Performance.TIME_FPS)) # Prints the FPS to the console
             </code></para>
+            </summary>
+        </member>
+        <member name="T:Godot.PhysicalBone">
+            <summary>
+            <para>Warning: With a non-uniform scale this node will probably not function as expected. Please make sure to keep its scale uniform (i.e. the same on all axes), and change the size(s) of its collision shape(s) instead.</para>
             </summary>
         </member>
         <member name="T:Godot.Physics2DDirectBodyState">
@@ -35735,6 +35759,7 @@
         <member name="T:Godot.PhysicsBody">
             <summary>
             <para>PhysicsBody is an abstract base class for implementing a physics body. All *Body types inherit from it.</para>
+            <para>Warning: With a non-uniform scale this node will probably not function as expected. Please make sure to keep its scale uniform (i.e. the same on all axes), and change the size(s) of its collision shape(s) instead.</para>
             </summary>
         </member>
         <member name="M:Godot.PhysicsBody.GetCollisionExceptions">
@@ -37468,6 +37493,7 @@
             <summary>
             <para><see cref="T:Godot.PopupMenu"/> is a <see cref="T:Godot.Control"/> that displays a list of options. They are popular in toolbars or context menus.</para>
             <para>Incremental search: Like <see cref="T:Godot.ItemList"/> and <see cref="T:Godot.Tree"/>, <see cref="T:Godot.PopupMenu"/> supports searching within the list while the control is focused. Press a key that matches the first letter of an item's name to select the first item starting with the given letter. After that point, there are two ways to perform incremental search: 1) Press the same key again before the timeout duration to select the next item starting with the same letter. 2) Press letter keys that match the rest of the word before the timeout duration to match to select the item in question directly. Both of these actions will be reset to the beginning of the list if the timeout duration has passed since the last keystroke was registered. You can adjust the timeout duration by changing .</para>
+            <para>Note: The ID values used for items are limited to 32 bits, not full 64 bits of <see cref="T:System.Int32"/>. This has a range of <c>-2^32</c> to <c>2^32 - 1</c>, i.e. <c>-2147483648</c> to <c>2147483647</c>.</para>
             </summary>
         </member>
         <member name="P:Godot.PopupMenu.HideOnItemSelection">
@@ -39584,6 +39610,7 @@
             <para>Note: Don't change a RigidBody's position every frame or very often. Sporadic changes work fine, but physics runs at a different granularity (fixed Hz) than usual rendering (process callback) and maybe even in a separate thread, so changing this from a process loop may result in strange behavior. If you need to directly affect the body's state, use <see cref="M:Godot.RigidBody._IntegrateForces(Godot.PhysicsDirectBodyState)"/>, which allows you to directly access the physics state.</para>
             <para>If you need to override the default physics behavior, you can write a custom force integration function. See <see cref="P:Godot.RigidBody.CustomIntegrator"/>.</para>
             <para>With Bullet physics (the default), the center of mass is the RigidBody3D center. With GodotPhysics, the center of mass is the average of the <see cref="T:Godot.CollisionShape"/> centers.</para>
+            <para>Warning: With a non-uniform scale this node will probably not function as expected. Please make sure to keep its scale uniform (i.e. the same on all axes), and change the size(s) of its collision shape(s) instead.</para>
             </summary>
         </member>
         <member name="F:Godot.RigidBody.ModeEnum.Rigid">
@@ -40668,7 +40695,7 @@
                 tween = create_tween()
             </code></para>
             <para>Some <see cref="T:Godot.Tweener"/>s use transitions and eases. The first accepts a <see cref="T:Godot.Tween.TransitionType"/> constant, and refers to the way the timing of the animation is handled (see <a href="https://easings.net/">easings.net</a> for some examples). The second accepts an <see cref="T:Godot.Tween.EaseType"/> constant, and controls where the <c>trans_type</c> is applied to the interpolation (in the beginning, the end, or both). If you don't know which transition and easing to pick, you can try different <see cref="T:Godot.Tween.TransitionType"/> constants with <see cref="F:Godot.Tween.EaseType.InOut"/>, and use the one that looks best.</para>
-            <para><a href="https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.png">Tween easing and transition types cheatsheet</a></para>
+            <para><a href="https://raw.githubusercontent.com/godotengine/godot-docs/3.5/img/tween_cheatsheet.png">Tween easing and transition types cheatsheet</a></para>
             <para>Note: All <see cref="T:Godot.SceneTreeTween"/>s will automatically start by default. To prevent a <see cref="T:Godot.SceneTreeTween"/> from autostarting, you can call <see cref="M:Godot.SceneTreeTween.Stop"/> immediately after it is created.</para>
             <para>Note: <see cref="T:Godot.SceneTreeTween"/>s are processing after all of nodes in the current frame, i.e. after <see cref="M:Godot.Node._Process(System.Single)"/> or <see cref="M:Godot.Node._PhysicsProcess(System.Single)"/> (depending on <see cref="T:Godot.Tween.TweenProcessMode"/>).</para>
             </summary>
@@ -40990,6 +41017,11 @@
         <member name="P:Godot.ScrollContainer.ScrollHorizontal">
             <summary>
             <para>The current horizontal scroll value.</para>
+            <para>Note: If you are setting this value in the <see cref="M:Godot.Node._Ready"/> function or earlier, it needs to be wrapped with <see cref="M:Godot.Object.SetDeferred(System.String,System.Object)"/>, since scroll bar's <see cref="P:Godot.Range.MaxValue"/> is not initialized yet.</para>
+            <para><code>
+            func _ready():
+                set_deferred("scroll_horizontal", 600)
+            </code></para>
             </summary>
         </member>
         <member name="P:Godot.ScrollContainer.ScrollVerticalEnabled">
@@ -41000,6 +41032,11 @@
         <member name="P:Godot.ScrollContainer.ScrollVertical">
             <summary>
             <para>The current vertical scroll value.</para>
+            <para>Note: Setting it early needs to be deferred, just like in <see cref="P:Godot.ScrollContainer.ScrollHorizontal"/>.</para>
+            <para><code>
+            func _ready():
+                set_deferred("scroll_vertical", 600)
+            </code></para>
             </summary>
         </member>
         <member name="M:Godot.ScrollContainer.GetHScrollbar">
@@ -41920,7 +41957,7 @@
         </member>
         <member name="P:Godot.Spatial.Visible">
             <summary>
-            <para>If <c>true</c>, this node is drawn. The node is only visible if all of its antecedents are visible as well (in other words, <see cref="M:Godot.Spatial.IsVisibleInTree"/> must return <c>true</c>).</para>
+            <para>If <c>true</c>, this node is drawn. The node is only visible if all of its ancestors are visible as well (in other words, <see cref="M:Godot.Spatial.IsVisibleInTree"/> must return <c>true</c>).</para>
             </summary>
         </member>
         <member name="P:Godot.Spatial.Gizmo">
@@ -41981,7 +42018,7 @@
         </member>
         <member name="M:Godot.Spatial.IsVisibleInTree">
             <summary>
-            <para>Returns <c>true</c> if the node is present in the <see cref="T:Godot.SceneTree"/>, its <see cref="P:Godot.Spatial.Visible"/> property is <c>true</c> and all its antecedents are also visible. If any antecedent is hidden, this node will not be visible in the scene tree.</para>
+            <para>Returns <c>true</c> if the node is present in the <see cref="T:Godot.SceneTree"/>, its <see cref="P:Godot.Spatial.Visible"/> property is <c>true</c> and all its ancestors are also visible. If any ancestor is hidden, this node will not be visible in the scene tree.</para>
             </summary>
         </member>
         <member name="M:Godot.Spatial.Show">
@@ -43683,8 +43720,12 @@
         </member>
         <member name="T:Godot.StaticBody">
             <summary>
-            <para>Static body for 3D physics. A static body is a simple body that is not intended to move. In contrast to <see cref="T:Godot.RigidBody"/>, they don't consume any CPU resources as long as they don't move.</para>
-            <para>Additionally, a constant linear or angular velocity can be set for the static body, so even if it doesn't move, it affects other bodies as if it was moving (this is useful for simulating conveyor belts or conveyor wheels).</para>
+            <para>Static body for 3D physics.</para>
+            <para>A static body is a simple body that doesn't move under physics simulation, i.e. it can't be moved by external forces or contacts but its transformation can still be updated manually by the user. It is ideal for implementing objects in the environment, such as walls or platforms. In contrast to <see cref="T:Godot.RigidBody"/>, it doesn't consume any CPU resources as long as they don't move.</para>
+            <para>They have extra functionalities to move and affect other bodies:</para>
+            <para>Static transform change: Static bodies can be moved by animation or script. In this case, they are just teleported and don't affect other bodies on their path.</para>
+            <para>Constant velocity: When <see cref="P:Godot.StaticBody.ConstantLinearVelocity"/> or <see cref="P:Godot.StaticBody.ConstantAngularVelocity"/> is set, static bodies don't move themselves but affect touching bodies as if they were moving. This is useful for simulating conveyor belts or conveyor wheels.</para>
+            <para>Warning: With a non-uniform scale this node will probably not function as expected. Please make sure to keep its scale uniform (i.e. the same on all axes), and change the size(s) of its collision shape(s) instead.</para>
             </summary>
         </member>
         <member name="P:Godot.StaticBody.Friction">
@@ -47416,6 +47457,7 @@
         <member name="T:Godot.Timer">
             <summary>
             <para>Counts down a specified interval and emits a signal on reaching 0. Can be set to repeat or "one-shot" mode.</para>
+            <para>Note: Timers are affected by <see cref="P:Godot.Engine.TimeScale"/>, a higher scale means quicker timeouts, and vice versa.</para>
             <para>Note: To create a one-shot timer without instantiating a node, use <see cref="M:Godot.SceneTree.CreateTimer(System.Single,System.Boolean)"/>.</para>
             </summary>
         </member>
@@ -47437,7 +47479,7 @@
         <member name="P:Godot.Timer.WaitTime">
             <summary>
             <para>The wait time in seconds.</para>
-            <para>Note: Timers can only emit once per rendered frame at most (or once per physics frame if <see cref="P:Godot.Timer.ProcessMode"/> is <see cref="F:Godot.Timer.TimerProcessMode.Physics"/>). This means very low wait times (lower than 0.05 seconds) will behave in significantly different ways depending on the rendered framerate. For very low wait times, it is recommended to use a process loop in a script instead of using a Timer node.</para>
+            <para>Note: Timers can only emit once per rendered frame at most (or once per physics frame if <see cref="P:Godot.Timer.ProcessMode"/> is <see cref="F:Godot.Timer.TimerProcessMode.Physics"/>). This means very low wait times (lower than 0.05 seconds) will behave in significantly different ways depending on the rendered framerate. For very low wait times, it is recommended to use a process loop in a script instead of using a Timer node. Timers are affected by <see cref="P:Godot.Engine.TimeScale"/>, a higher scale means quicker timeouts, and vice versa.</para>
             </summary>
         </member>
         <member name="P:Godot.Timer.OneShot">
@@ -47879,6 +47921,7 @@
             <summary>
             <para>Control for a single item inside a <see cref="T:Godot.Tree"/>. May have child <see cref="T:Godot.TreeItem"/>s and be styled as well as contain buttons.</para>
             <para>You can remove a <see cref="T:Godot.TreeItem"/> by using <see cref="M:Godot.Object.Free"/>.</para>
+            <para>Note: The ID values used for buttons are limited to 32 bits, not full 64 bits of <see cref="T:System.Int32"/>. This has a range of <c>-2^32</c> to <c>2^32 - 1</c>, i.e. <c>-2147483648</c> to <c>2147483647</c>.</para>
             </summary>
         </member>
         <member name="F:Godot.TreeItem.TreeCellMode.String">
@@ -48264,7 +48307,7 @@
             </code></para>
             <para>Many methods require a property name, such as <c>"position"</c> above. You can find the correct property name by hovering over the property in the Inspector. You can also provide the components of a property directly by using <c>"property:component"</c> (e.g. <c>position:x</c>), where it would only apply to that particular component.</para>
             <para>Many of the methods accept <c>trans_type</c> and <c>ease_type</c>. The first accepts an <see cref="T:Godot.Tween.TransitionType"/> constant, and refers to the way the timing of the animation is handled (see <a href="https://easings.net/">easings.net</a> for some examples). The second accepts an <see cref="T:Godot.Tween.EaseType"/> constant, and controls where the <c>trans_type</c> is applied to the interpolation (in the beginning, the end, or both). If you don't know which transition and easing to pick, you can try different <see cref="T:Godot.Tween.TransitionType"/> constants with <see cref="F:Godot.Tween.EaseType.InOut"/>, and use the one that looks best.</para>
-            <para><a href="https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.png">Tween easing and transition types cheatsheet</a></para>
+            <para><a href="https://raw.githubusercontent.com/godotengine/godot-docs/3.5/img/tween_cheatsheet.png">Tween easing and transition types cheatsheet</a></para>
             <para>Note: Tween methods will return <c>false</c> if the requested operation cannot be completed.</para>
             <para>Note: For an alternative method of tweening, that doesn't require using nodes, see <see cref="T:Godot.SceneTreeTween"/>.</para>
             </summary>
@@ -49120,6 +49163,7 @@
             <para>This node implements all the physics logic needed to simulate a car. It is based on the raycast vehicle system commonly found in physics engines. You will need to add a <see cref="T:Godot.CollisionShape"/> for the main body of your vehicle and add <see cref="T:Godot.VehicleWheel"/> nodes for the wheels. You should also add a <see cref="T:Godot.MeshInstance"/> to this node for the 3D model of your car but this model should not include meshes for the wheels. You should control the vehicle by using the <see cref="P:Godot.VehicleBody.Brake"/>, <see cref="P:Godot.VehicleBody.EngineForce"/>, and <see cref="P:Godot.VehicleBody.Steering"/> properties and not change the position or orientation of this node directly.</para>
             <para>Note: The origin point of your VehicleBody will determine the center of gravity of your vehicle so it is better to keep this low and move the <see cref="T:Godot.CollisionShape"/> and <see cref="T:Godot.MeshInstance"/> upwards.</para>
             <para>Note: This class has known issues and isn't designed to provide realistic 3D vehicle physics. If you want advanced vehicle physics, you will probably have to write your own physics integration using another <see cref="T:Godot.PhysicsBody"/> class.</para>
+            <para>Warning: With a non-uniform scale this node will probably not function as expected. Please make sure to keep its scale uniform (i.e. the same on all axes), and change the size(s) of its collision shape(s) instead.</para>
             </summary>
         </member>
         <member name="P:Godot.VehicleBody.EngineForce">
@@ -49366,7 +49410,7 @@
             <summary>
             <para><see cref="T:Godot.VideoStream"/> resource handling the <a href="https://www.webmproject.org/">WebM</a> video format with <c>.webm</c> extension. Both the VP8 and VP9 codecs are supported. The VP8 and VP9 codecs are more efficient than <see cref="T:Godot.VideoStreamTheora"/>, but they require more CPU resources to decode (especially VP9). Both the VP8 and VP9 codecs are decoded on the CPU.</para>
             <para>Note: Alpha channel (also known as transparency) is not supported. The video will always appear to have a black background, even if it originally contains an alpha channel.</para>
-            <para>Note: There are known bugs and performance issues with WebM video playback in Godot. If you run into problems, try using the Ogg Theora format instead: <see cref="T:Godot.VideoStreamTheora"/></para>
+            <para>Note: Not supported on iOS, or when compiled for RISC-V, and there are known bugs and performance issues with WebM video playback in Godot. If you run into problems, try using the Ogg Theora format instead: <see cref="T:Godot.VideoStreamTheora"/></para>
             </summary>
         </member>
         <member name="M:Godot.VideoStreamWebm.SetFile(System.String)">
@@ -57581,7 +57625,7 @@
         </member>
         <member name="P:Godot.Engine.TimeScale">
             <summary>
-            <para>Controls how fast or slow the in-game clock ticks versus the real life one. It defaults to 1.0. A value of 2.0 means the game moves twice as fast as real life, whilst a value of 0.5 means the game moves at half the regular speed.</para>
+            <para>Controls how fast or slow the in-game clock ticks versus the real life one. It defaults to 1.0. A value of 2.0 means the game moves twice as fast as real life, whilst a value of 0.5 means the game moves at half the regular speed. This also affects <see cref="T:Godot.Timer"/> and <see cref="T:Godot.SceneTreeTimer"/> (see <see cref="M:Godot.SceneTree.CreateTimer(System.Single,System.Boolean)"/> for how to control this).</para>
             </summary>
         </member>
         <member name="P:Godot.Engine.PhysicsJitterFix">

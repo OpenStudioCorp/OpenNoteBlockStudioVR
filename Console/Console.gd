@@ -137,7 +137,7 @@ var showPreview = true
 func _ready():
 	showPreview = false
 	
-	consoleText.bbcode_text = ""
+	consoleText.bbcode_text = "b"
 	
 	consoleLine.placeholder_text = userMsgSign
 	consoleLine.text = ""
