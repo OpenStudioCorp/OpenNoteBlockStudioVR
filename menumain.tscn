@@ -1,9 +1,105 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Control.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Console/image-6.png_1.png" type="Texture" id=2]
+[ext_resource path="res://anime-sky-nldnmysw6dfnlyzb.jpg" type="Texture" id=3]
+[ext_resource path="res://menumain.gd" type="Script" id=4]
+[ext_resource path="res://kenneyUI-blue.tres" type="Theme" id=5]
+
+[sub_resource type="Theme" id=1]
+RichTextLabel/colors/default_color = Color( 1, 1, 1, 1 )
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2( 1.242, 1.153 )
+script = ExtResource( 4 )
 
-[node name="Control" parent="." instance=ExtResource( 1 )]
-margin_left = 6.0
-margin_right = 6.0
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_right = 1027.0
+margin_bottom = 613.0
+theme = ExtResource( 5 )
+
+[node name="Home" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.5
+margin_top = 28.0
+margin_right = -0.5
+
+[node name="Control" parent="TabContainer/Home" instance=ExtResource( 1 )]
+margin_left = 1.61031
+margin_top = 0.620987
+margin_right = 1.61035
+margin_bottom = 0.620972
+
+[node name="vr" type="Button" parent="TabContainer/Home/Control"]
+margin_left = 152.979
+margin_top = 471.0
+margin_right = 308.979
+margin_bottom = 528.0
+rect_pivot_offset = Vector2( 72, 32 )
+text = "FlatScreen"
+
+[node name="desktop" type="Button" parent="TabContainer/Home/Control"]
+margin_left = 665.862
+margin_top = 470.0
+margin_right = 872.862
+margin_bottom = 528.0
+rect_pivot_offset = Vector2( 72, 32 )
+text = "virtual Reality"
+
+[node name="Image-6png1" type="Sprite" parent="TabContainer/Home/Control"]
+position = Vector2( 494, 60 )
+texture = ExtResource( 2 )
+
+[node name="version" type="RichTextLabel" parent="TabContainer/Home/Control"]
+margin_left = 770.031
+margin_top = -26.8864
+margin_right = 1028.03
+margin_bottom = 41.1136
+theme = SubResource( 1 )
+text = "Version 1.0
+made by OpenStudio"
+
+[node name="Home2" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 28.0
+
+[node name="Control" parent="TabContainer/Home2" instance=ExtResource( 1 )]
+margin_left = 1.61031
+margin_top = 0.620987
+margin_right = 1.61035
+margin_bottom = 0.620972
+
+[node name="Home3" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 28.0
+
+[node name="Control" parent="TabContainer/Home3" instance=ExtResource( 1 )]
+margin_left = 1.61031
+margin_top = 0.620987
+margin_right = 1.61035
+margin_bottom = 0.620972
+
+[node name="Home4" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 28.0
+
+[node name="Control" parent="TabContainer/Home4" instance=ExtResource( 1 )]
+margin_left = 1.61031
+margin_top = 0.620987
+margin_right = 1.61035
+margin_bottom = 0.620972
+
+[node name="Anime-sky-nldnmysw6Dfnlyzb" type="Sprite" parent="TabContainer"]
+position = Vector2( 515.298, 312.229 )
+scale = Vector2( 0.536769, 0.520382 )
+z_index = -4096
+texture = ExtResource( 3 )
