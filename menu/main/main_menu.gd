@@ -24,7 +24,7 @@ func _on_Exit_pressed():
 
 
 func _on_RandomBlocks_pressed():
-	pass	
+	pass
 #	tree.change_scene("res://world/world.tscn")
 
 
