@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Control.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Console/image-6.png_1.png" type="Texture" id=2]
-[ext_resource path="res://anime-sky-nldnmysw6dfnlyzb.jpg" type="Texture" id=3]
 [ext_resource path="res://menumain.gd" type="Script" id=4]
 [ext_resource path="res://kenneyUI-blue.tres" type="Theme" id=5]
 
@@ -28,9 +27,9 @@ margin_top = 28.0
 margin_right = -0.5
 
 [node name="Control" parent="TabContainer/Home" instance=ExtResource( 1 )]
-margin_left = 1.61031
+margin_left = 0.805157
 margin_top = 0.620987
-margin_right = 1.61035
+margin_right = 0.805176
 margin_bottom = 0.620972
 
 [node name="vr" type="Button" parent="TabContainer/Home/Control"]
@@ -97,9 +96,3 @@ margin_left = 1.61031
 margin_top = 0.620987
 margin_right = 1.61035
 margin_bottom = 0.620972
-
-[node name="Anime-sky-nldnmysw6Dfnlyzb" type="Sprite" parent="TabContainer"]
-position = Vector2( 515.298, 312.229 )
-scale = Vector2( 0.536769, 0.520382 )
-z_index = -4096
-texture = ExtResource( 3 )
