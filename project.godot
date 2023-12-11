@@ -81,7 +81,7 @@ _global_script_class_icons={
 [application]
 
 config/name="OpenNoteblockStudioVR"
-run/main_scene="res://menu/main/main_menu.tscn"
+run/main_scene="res://materials/menu/main/main_menu.tscn"
 config/icon="res://icon.png"
 
 [display]
