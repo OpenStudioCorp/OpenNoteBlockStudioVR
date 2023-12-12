@@ -1,4 +1,4 @@
-extends RoomManager
+xtends RoomManager
 
 
 # Declare member variables here. Examples:

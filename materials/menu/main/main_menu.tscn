@@ -146,9 +146,6 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="StartButtons" type="VBoxContainer" parent="StartGame"]
 margin_left = 240.0
@@ -175,7 +172,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -1.0
 margin_bottom = -18.0
-text = "Virtual Reality"
+text = "FlatScreen"
 align = 1
 valign = 1
 
@@ -191,7 +188,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -1.0
 margin_bottom = -18.0
-text = "FlatScreen"
+text = "Virtual Reality"
 align = 1
 valign = 1
 __meta__ = {

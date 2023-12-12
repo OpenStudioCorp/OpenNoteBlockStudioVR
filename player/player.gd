@@ -1,6 +1,6 @@
 extends KinematicBody
 
-
+var deadzone = 0.15
 const FLOOR_MAX_ANGLE: float = deg2rad(46.0)
 const KEY_MOVE_FORWARD: String = 'movement.forward'
 const KEY_MOVE_BACKWARD: String = 'movement.backward'
@@ -63,25 +63,39 @@ func _input(event):
 		process_camera_motion(event.relative)
 
 
+var joystick_speed = 15.0  # Adjust this value to change the speed
+
 func _process(delta):
 	set_direction()
 	set_jumping()
 	set_crouching()
 	set_move_speed()
 
+	var joy_rx = -Input.get_joy_axis(0, 2)
+	var joy_ry = -Input.get_joy_axis(0, 3)
+
+	# Apply deadzone
+	if abs(joy_rx) < deadzone:
+		joy_rx = 0
+	if abs(joy_ry) < deadzone:
+		joy_ry = 0
+
+	# Process camera motion with joystick input
+	process_camera_motion(Vector2(-joy_rx * joystick_speed, -joy_ry * joystick_speed))
+
 	if !(Input.is_action_pressed(KEY_INSPECT) and prop_container.prop):
 		move(delta)
 		crouch(delta)
 		# Load the audio file
-		var audio = load("res://assets/sounds/sex.mp3")
+		var audio = load("res://assets/sounds/try.mp3")
 
-# Create an AudioStreamPlayer node
+		# Create an AudioStreamPlayer node
 		var audio_player = AudioStreamPlayer.new()
 
-# Set the audio file to play
+		# Set the audio file to play
 		audio_player.stream = audio
 
-# Play the audio
+		# Play the audio
 		audio_player.play()
 	rigid_body_collision()
 
@@ -106,26 +120,36 @@ func set_move_speed(speed = null) -> void:
 #
 # This sets direction for xz-plane.
 # Refer to Jump mechanics for y-axis.
+
+
 func set_direction(dir = null) -> void:
 	if dir is Vector3:
 		direction = dir.normalized() * Vector3(1, 0, 1)
 	else:
 		direction = Vector3.ZERO
 
-		if Input.is_action_pressed(KEY_MOVE_FORWARD):
+		var joy_x = Input.get_joy_axis(0, 0)
+		var joy_y = Input.get_joy_axis(0, 1)
+
+		# Apply deadzone
+		if abs(joy_x) < deadzone:
+			joy_x = 0
+		if abs(joy_y) < deadzone:
+			joy_y = 0
+
+		if Input.is_action_pressed(KEY_MOVE_FORWARD) or joy_y < 0:
 			direction -= transform.basis.z
 
-		if Input.is_action_pressed(KEY_MOVE_BACKWARD):
+		if Input.is_action_pressed(KEY_MOVE_BACKWARD) or joy_y > 0:
 			direction += transform.basis.z
 
-		if Input.is_action_pressed(KEY_STRAFE_LEFT):
+		if Input.is_action_pressed(KEY_STRAFE_LEFT) or joy_x < 0:
 			direction -= transform.basis.x
 
-		if Input.is_action_pressed(KEY_STRAFE_RIGHT):
+		if Input.is_action_pressed(KEY_STRAFE_RIGHT) or joy_x > 0:
 			direction += transform.basis.x
 
 		direction = direction.normalized() * Vector3(1, 0, 1)
-
 
 # Set the 'crouching' flag based on the argument. 
 # If non given, the 'crouching' flag is set based on player input.

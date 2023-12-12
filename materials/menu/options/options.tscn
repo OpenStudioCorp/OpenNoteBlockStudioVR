@@ -1,14 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://materials/menu/options/options.gd" type="Script" id=1]
-[ext_resource path="res://materials/menu/options/option_buttons.gd" type="Script" id=2]
+[ext_resource path="res://assets/textures/gui/sprites/widget/locked_button_highlighted.png" type="Texture" id=2]
 [ext_resource path="res://assets/textures/block/blue_concrete_powder.png" type="Texture" id=3]
 [ext_resource path="res://assets/textures/block/blue_glazed_terracotta.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/gui/sprites/widget/cross_button_highlighted.png" type="Texture" id=5]
+[ext_resource path="res://assets/textures/gui/sprites/widget/cross_button.png" type="Texture" id=6]
+[ext_resource path="res://assets/textures/gui/sprites/widget/locked_button.png" type="Texture" id=7]
+[ext_resource path="res://assets/textures/gui/sprites/recipe_book/button.png" type="Texture" id=8]
+[ext_resource path="res://assets/textures/gui/sprites/recipe_book/button_highlighted.png" type="Texture" id=9]
 
 [node name="Options" type="HBoxContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = -2.0
 alignment = 1
 script = ExtResource( 1 )
 
@@ -27,56 +33,50 @@ texture = ExtResource( 4 )
 expand = true
 stretch_mode = 2
 
-[node name="OptionButtons" type="GridContainer" parent="VBoxContainer/OptionsBackground"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -639.135
-margin_top = -279.026
-margin_right = 638.865
-margin_bottom = -147.026
-rect_min_size = Vector2( 1039.96, 128 )
-columns = 2
-script = ExtResource( 2 )
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/OptionsBackground"]
+margin_left = 332.0
+margin_top = 107.0
+margin_right = 372.0
+margin_bottom = 147.0
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+expand = true
 
-[node name="RenderDistanceLabel" type="Label" parent="VBoxContainer/OptionsBackground/OptionButtons"]
-margin_right = 384.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 384, 64 )
-size_flags_vertical = 5
-text = "Render distance: 3"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/OptionsBackground"]
+margin_left = 332.0
+margin_top = 147.0
+margin_right = 372.0
+margin_bottom = 187.0
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 5 )
+expand = true
 
-[node name="RenderDistanceSlider" type="HSlider" parent="VBoxContainer/OptionsBackground/OptionButtons"]
-margin_left = 388.0
-margin_right = 1278.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 384, 64 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-min_value = 3.0
-max_value = 10.0
-value = 7.0
+[node name="TextureButton3" type="TextureButton" parent="VBoxContainer/OptionsBackground"]
+margin_left = 332.0
+margin_top = 187.0
+margin_right = 372.0
+margin_bottom = 227.0
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 2 )
+expand = true
 
-[node name="FogLabel" type="Label" parent="VBoxContainer/OptionsBackground/OptionButtons"]
-margin_top = 68.0
-margin_right = 384.0
-margin_bottom = 132.0
-rect_min_size = Vector2( 384, 64 )
-size_flags_vertical = 5
-text = "Fog Enabled"
+[node name="TextureButton4" type="TextureButton" parent="VBoxContainer/OptionsBackground"]
+margin_left = 332.0
+margin_top = 227.0
+margin_right = 372.0
+margin_bottom = 267.0
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+expand = true
 
-[node name="FogCheckBox" type="CheckBox" parent="VBoxContainer/OptionsBackground/OptionButtons"]
-margin_left = 388.0
-margin_top = 68.0
-margin_right = 1278.0
-margin_bottom = 132.0
-rect_min_size = Vector2( 384, 64 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="TextureButton5" type="TextureButton" parent="VBoxContainer/OptionsBackground"]
+margin_left = 332.0
+margin_top = 267.0
+margin_right = 372.0
+margin_bottom = 307.0
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 654.0
@@ -102,6 +102,4 @@ text = "Back"
 align = 1
 valign = 1
 
-[connection signal="value_changed" from="VBoxContainer/OptionsBackground/OptionButtons/RenderDistanceSlider" to="VBoxContainer/OptionsBackground/OptionButtons" method="_on_RenderDistanceSlider_value_changed"]
-[connection signal="pressed" from="VBoxContainer/OptionsBackground/OptionButtons/FogCheckBox" to="VBoxContainer/OptionsBackground/OptionButtons" method="_on_FogCheckBox_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Back" to="." method="_on_Back_pressed"]
