@@ -1,0 +1,16 @@
+[remap]
+
+importer="citizenl.godot-csv-importer"
+type="Resource"
+uid="uid://cko4hboqhnk3d"
+path="res://.godot/imported/translation.csv-cf98e645eb0127f182058f4e3e2cb8ea.tres"
+
+[deps]
+
+source_file="res://addons/godot-idea-board/translation/translation.csv"
+dest_files=["res://.godot/imported/translation.csv-cf98e645eb0127f182058f4e3e2cb8ea.tres"]
+
+[params]
+
+delimiter=0
+describe_headers=true

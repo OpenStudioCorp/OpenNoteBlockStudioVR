@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cfbdy1cs4verr"
+path="res://.godot/imported/Windows Notify Email.wav-f2fee3d57d8e26d0c998f4a1ea7a5c7d.sample"
+
+[deps]
+
+source_file="res://game/Windows-8.1-sounds-main/Windows Notify Email.wav"
+dest_files=["res://.godot/imported/Windows Notify Email.wav-f2fee3d57d8e26d0c998f4a1ea7a5c7d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

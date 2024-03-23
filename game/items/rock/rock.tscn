@@ -1,0 +1,62 @@
+[gd_scene load_steps=16 format=3 uid="uid://c4rpcr7s5pt3v"]
+
+[ext_resource type="PackedScene" uid="uid://cc2akik80xtnb" path="res://components/persistent/persistent_item.tscn" id="1_87r61"]
+[ext_resource type="Resource" uid="uid://bjewm2x0kyx28" path="res://game/items/rock/rock_type.tres" id="2_53gts"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_08c2g"]
+[ext_resource type="Script" path="res://game/items/rock/maow.gd" id="3_vn0ev"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_m4f38"]
+[ext_resource type="Texture2D" uid="uid://yoggg4jqfks0" path="res://orb.jpg" id="4_rq7qb"]
+[ext_resource type="Animation" uid="uid://bediglpx0rj7i" path="res://addons/godot-xr-tools/hands/animations/left/Grip 5.res" id="5_rtm64"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="6_34xyl"]
+[ext_resource type="Animation" uid="uid://s1vqcxyqcvea" path="res://addons/godot-xr-tools/hands/animations/right/Grip 5.res" id="8_kmf2q"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="9_kvg40"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hwubp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvkxd"]
+albedo_texture = ExtResource("4_rq7qb")
+uv1_scale = Vector3(3, 2.045, 1.675)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y0a7a"]
+material = SubResource("StandardMaterial3D_pvkxd")
+
+[sub_resource type="Resource" id="Resource_m0rx4"]
+script = ExtResource("6_34xyl")
+open_pose = ExtResource("5_rtm64")
+closed_pose = ExtResource("5_rtm64")
+
+[sub_resource type="Resource" id="Resource_vx8u2"]
+script = ExtResource("6_34xyl")
+open_pose = ExtResource("8_kmf2q")
+closed_pose = ExtResource("8_kmf2q")
+
+[node name="Rock" groups=["fits_in_pocket", "fits_in_storage"] instance=ExtResource("1_87r61")]
+transform = Transform3D(0.258159, 0, 0, 0, 0.258159, 0, 0, 0, 0.258159, 0, 0, 0)
+item_id = "rock_"
+item_type = ExtResource("2_53gts")
+metadata/sound = null
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_hwubp")
+script = ExtResource("3_vn0ev")
+
+[node name="Area3D" type="Area3D" parent="CollisionShape3D" index="0"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_y0a7a")
+
+[node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("3_08c2g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16, 0.045, -0.045)
+hand_pose = SubResource("Resource_m0rx4")
+
+[node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("4_m4f38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, 0.045, -0.045)
+hand_pose = SubResource("Resource_vx8u2")
+
+[node name="HighlightRing" parent="." index="4" instance=ExtResource("9_kvg40")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="5"]
+
+[connection signal="area_entered" from="CollisionShape3D/Area3D" to="." method="_on_area_3d_area_entered"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://t5aissaurben"
+path="res://.godot/imported/Windows Proximity Notification.wav-4af74f931edf3ebc0f1c3eb576ef5e70.sample"
+
+[deps]
+
+source_file="res://game/Windows-8.1-sounds-main/Windows Proximity Notification.wav"
+dest_files=["res://.godot/imported/Windows Proximity Notification.wav-4af74f931edf3ebc0f1c3eb576ef5e70.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

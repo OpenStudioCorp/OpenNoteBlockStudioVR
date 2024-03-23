@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://tdxareh0gw2n"
+path="res://.godot/imported/Speech Disambiguation.wav-9c7783636728290adbfb2f061ef47188.sample"
+
+[deps]
+
+source_file="res://game/Windows-8.1-sounds-main/Speech Disambiguation.wav"
+dest_files=["res://.godot/imported/Speech Disambiguation.wav-9c7783636728290adbfb2f061ef47188.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

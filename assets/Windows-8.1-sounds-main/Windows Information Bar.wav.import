@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b1ytxp3uhdyrc"
+path="res://.godot/imported/Windows Information Bar.wav-9730125d0a0cf54814c139ce53f42c21.sample"
+
+[deps]
+
+source_file="res://assets/Windows-8.1-sounds-main/Windows Information Bar.wav"
+dest_files=["res://.godot/imported/Windows Information Bar.wav-9730125d0a0cf54814c139ce53f42c21.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

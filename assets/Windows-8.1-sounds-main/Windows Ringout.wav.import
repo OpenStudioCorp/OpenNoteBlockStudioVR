@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dtda1g1xpahdr"
+path="res://.godot/imported/Windows Ringout.wav-2ab460c87d8d46291a80a7df509fa56d.sample"
+
+[deps]
+
+source_file="res://assets/Windows-8.1-sounds-main/Windows Ringout.wav"
+dest_files=["res://.godot/imported/Windows Ringout.wav-2ab460c87d8d46291a80a7df509fa56d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

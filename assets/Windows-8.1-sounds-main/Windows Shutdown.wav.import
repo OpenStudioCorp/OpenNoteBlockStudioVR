@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://1js7n3lh1jwd"
+path="res://.godot/imported/Windows Shutdown.wav-6ee56e1a1b0bf50ec6f8b61c009f2a2a.sample"
+
+[deps]
+
+source_file="res://assets/Windows-8.1-sounds-main/Windows Shutdown.wav"
+dest_files=["res://.godot/imported/Windows Shutdown.wav-6ee56e1a1b0bf50ec6f8b61c009f2a2a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

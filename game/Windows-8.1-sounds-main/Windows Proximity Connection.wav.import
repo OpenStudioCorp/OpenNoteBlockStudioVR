@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dor84ef8duakl"
+path="res://.godot/imported/Windows Proximity Connection.wav-e27d818d8fa2f80851e9f474e653b505.sample"
+
+[deps]
+
+source_file="res://game/Windows-8.1-sounds-main/Windows Proximity Connection.wav"
+dest_files=["res://.godot/imported/Windows Proximity Connection.wav-e27d818d8fa2f80851e9f474e653b505.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

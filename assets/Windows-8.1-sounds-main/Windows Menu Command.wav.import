@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfvyuxo567sjc"
+path="res://.godot/imported/Windows Menu Command.wav-79952909e2dbbb7f2e9d962c083f9897.sample"
+
+[deps]
+
+source_file="res://assets/Windows-8.1-sounds-main/Windows Menu Command.wav"
+dest_files=["res://.godot/imported/Windows Menu Command.wav-79952909e2dbbb7f2e9d962c083f9897.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

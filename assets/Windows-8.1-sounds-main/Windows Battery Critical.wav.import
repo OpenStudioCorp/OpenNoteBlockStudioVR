@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwhb3yanaj2lw"
+path="res://.godot/imported/Windows Battery Critical.wav-949b2f24163ba2d6b39d466efec9aff2.sample"
+
+[deps]
+
+source_file="res://assets/Windows-8.1-sounds-main/Windows Battery Critical.wav"
+dest_files=["res://.godot/imported/Windows Battery Critical.wav-949b2f24163ba2d6b39d466efec9aff2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

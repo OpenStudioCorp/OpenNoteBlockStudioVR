@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bq6dl6lqed3fv"
+path="res://.godot/imported/Windows Ringin.wav-6b763d718f93e8ac511674124198f4c1.sample"
+
+[deps]
+
+source_file="res://game/Windows-8.1-sounds-main/Windows Ringin.wav"
+dest_files=["res://.godot/imported/Windows Ringin.wav-6b763d718f93e8ac511674124198f4c1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

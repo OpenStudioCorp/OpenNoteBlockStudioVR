@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NoteSample" load_steps=3 format=3 uid="uid://or0rpm8mm2fx"]
+
+[ext_resource type="Script" path="res://addons/SimpleSampler/sample_resource.gd" id="2"]
+[ext_resource type="AudioStream" uid="uid://o5pwkcdpex4o" path="res://samples/synth/Ab4.ogg" id="3"]
+
+[resource]
+script = ExtResource("2")
+stream = ExtResource("3")
+tone = "G#"
+octave = 3

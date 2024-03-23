@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bpn37lh2bj4ms"
+path="res://.godot/imported/Windows Hardware Insert.wav-b2f4f59a1f8c12e1945f4e768f8b10bd.sample"
+
+[deps]
+
+source_file="res://assets/Windows-8.1-sounds-main/Windows Hardware Insert.wav"
+dest_files=["res://.godot/imported/Windows Hardware Insert.wav-b2f4f59a1f8c12e1945f4e768f8b10bd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

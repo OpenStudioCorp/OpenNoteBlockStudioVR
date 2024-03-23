@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dyiydmmut86kp"
+path="res://.godot/imported/Windows Hardware Fail.wav-022add73a427d75d5d29eb647512b3f9.sample"
+
+[deps]
+
+source_file="res://game/Windows-8.1-sounds-main/Windows Hardware Fail.wav"
+dest_files=["res://.godot/imported/Windows Hardware Fail.wav-022add73a427d75d5d29eb647512b3f9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

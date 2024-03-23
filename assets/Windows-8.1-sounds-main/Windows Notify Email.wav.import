@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://o3pbmbkqxyih"
+path="res://.godot/imported/Windows Notify Email.wav-ee466132d23d8a18239846fa5a1672e6.sample"
+
+[deps]
+
+source_file="res://assets/Windows-8.1-sounds-main/Windows Notify Email.wav"
+dest_files=["res://.godot/imported/Windows Notify Email.wav-ee466132d23d8a18239846fa5a1672e6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

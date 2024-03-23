@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b54r1nuhk7wpg"]
+
+[ext_resource type="Script" path="res://noteblock.gd" id="1_3xwue"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_w5t46"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bdt4b"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="XRToolsPickable" type="RigidBody3D" parent="."]
+transform = Transform3D(2.31095, 0, 0, 0, 2.31095, 0, 0, 0, 2.31095, 0, 0, 0)
+script = ExtResource("1_w5t46")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsPickable"]
+transform = Transform3D(0.0334602, 0, 0, 0, 0.0334602, 0, 0, 0, 0.0334602, 0, 0, 0)
+shape = SubResource("BoxShape3D_bdt4b")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="XRToolsPickable"]
+transform = Transform3D(0.0198851, 0, 0, 0, 0.0198851, 0, 0, 0, 0.0198851, 0, 0, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="XRToolsPickable/CSGBox3D"]
+script = ExtResource("1_3xwue")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsPickable/CSGBox3D/CharacterBody3D"]
+transform = Transform3D(0.424849, 0, 0, 0, 0.424849, 0, 0, 0, 0.424849, 0, 0, 0)
+shape = SubResource("BoxShape3D_bdt4b")

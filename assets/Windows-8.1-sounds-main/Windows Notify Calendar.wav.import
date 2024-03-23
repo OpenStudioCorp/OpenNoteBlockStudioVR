@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://huv7f8c3mpts"
+path="res://.godot/imported/Windows Notify Calendar.wav-093841f2ee1d702a61c1186ee638fcb9.sample"
+
+[deps]
+
+source_file="res://assets/Windows-8.1-sounds-main/Windows Notify Calendar.wav"
+dest_files=["res://.godot/imported/Windows Notify Calendar.wav-093841f2ee1d702a61c1186ee638fcb9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

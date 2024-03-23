@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dv2vao60d4g43"
+path="res://.godot/imported/Windows Notify.wav-46b3b1bf0a8e80f210a62b3020ed2370.sample"
+
+[deps]
+
+source_file="res://assets/Windows-8.1-sounds-main/Windows Notify.wav"
+dest_files=["res://.godot/imported/Windows Notify.wav-46b3b1bf0a8e80f210a62b3020ed2370.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

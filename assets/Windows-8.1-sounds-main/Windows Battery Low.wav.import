@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmfbbler6iw4r"
+path="res://.godot/imported/Windows Battery Low.wav-2b1de08fe69ab5e03289e11a3308237c.sample"
+
+[deps]
+
+source_file="res://assets/Windows-8.1-sounds-main/Windows Battery Low.wav"
+dest_files=["res://.godot/imported/Windows Battery Low.wav-2b1de08fe69ab5e03289e11a3308237c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
