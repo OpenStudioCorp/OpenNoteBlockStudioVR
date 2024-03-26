@@ -239,4 +239,4 @@ func _on_auto_return() -> void:
 
 
 func _on_area_3d_area_entered(area):
-	if area
+	pass
