@@ -9,3 +9,6 @@ sky_material = SubResource("ProceduralSkyMaterial_qmfyt")
 background_mode = 2
 sky = SubResource("1")
 sky_rotation = Vector3(0, 2.35619, 0)
+tonemap_mode = 3
+tonemap_exposure = 1.53
+tonemap_white = 16.0
